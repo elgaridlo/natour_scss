@@ -1,1 +1,45 @@
-.form {}
+.form {
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+    &__input {
+        font-size: 1.5rem;
+        padding: 1.5rem 2rem;
+        color: inherit;
+        // ini bakal langsung nurunin dari font parent
+        font-family: inherit;
+        border-radius: 2px;
+        background-color: rgba($color: $color-white, $alpha: 0.5);
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        // displaynya biar panjang se block
+        display: block;
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color: $color-black, $alpha: 0.1);
+            border-bottom: 3px solid $color-primary;
+        }
+        // invalid digunain ketika validasi dibutuhkan
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+        }
+    }
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: 0.7rem;
+        transition: all 0.3s;
+    }
+    //  + itu digunakan untuk sibling atau selevel dan sebelahan (lihat html biar jelas) terus ~ digunakan untuk general ketika antar
+    // sibling ada tag lain, dan pemakaiannya harus berurutan semisal input ya input dulu yang dipanggil
+    &__input:placeholder-shown+&__label {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+}
