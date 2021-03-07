@@ -1,0 +1,19 @@
+/* bintang :: before dan after itu digunakan kalau ada perubahan di before dan after biar mereka 
+punya sifat yang sama dengan tanpa before after */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    /* ini akan mengambil sifat di body border-block */
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    box-sizing: border-box;
+}
