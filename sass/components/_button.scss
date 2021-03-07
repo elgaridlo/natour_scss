@@ -1,4 +1,6 @@
 .btn {
+    // &, ini digunain buat mentranslate ke btn jadi ya css didalam link visited bakal berlaku di class btn
+    &,
     &:link,
     &:visited {
         text-transform: uppercase;
@@ -12,6 +14,9 @@
         /* merujuk ke btn */
         position: relative;
         font-size: $default-font-size;
+        // Change for the <button> element
+        cursor: pointer;
+        border: none;
     }
     &:hover {
         transform: translateY(-3px);
@@ -24,7 +29,9 @@
             opacity: 0;
         }
     }
-    &:active {
+    &:active,
+    &:focus {
+        outline: none;
         transform: translateY(-1px);
         box-shadow: 0 2rem 0.1rem rgba($color-black, 0.2);
     }
